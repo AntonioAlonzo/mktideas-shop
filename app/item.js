@@ -12,10 +12,6 @@ function Item({ data }) {
     data.colors["item-0"].photos.split(",")
   );
 
-  const handleImageClick = (index) => {
-    setCurrentImage(index);
-  };
-
   const handleDotClick = (index) => {
     let photosArray = getPhotos(index);
     setCurrentPhotos(photosArray);
@@ -31,12 +27,9 @@ function Item({ data }) {
   }
 
   return (
-    <div className="w-[40rem]">
+    <div className="">
       <div>
-        <CustomCarousel
-          images={photos}
-          activeImage={activeImage}
-        ></CustomCarousel>
+        <CustomCarousel images={photos}></CustomCarousel>
 
         <div className="indicator">
           {/*photos.map((_, index) => (
@@ -52,17 +45,17 @@ function Item({ data }) {
         </div>
       </div>
 
-      <div className="flex justify-between ">
-        <div className="transition-all font-bold text-xl mb-2 hover:tracking-wider">
+      <div className="flex justify-between pt-6">
+        <div className="transition-all font-bold hover:tracking-wider">
           {data.name}
         </div>
 
-        <div className="indicator space-x-5 ">
+        <div className="indicator space-x-5">
           {COLORS.map((color, index) => (
             <button
               style={{ backgroundColor: color[1].color_code }}
               className={
-                (activeColor == index ? "opacity-100" : "opacity-50") +
+                (activeColor == index ? "opacity-100" : "opacity-30") +
                 " w-5 h-5 rounded-full outline-1 outline outline-offset-2 outline-black"
               }
               key={index}

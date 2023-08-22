@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-
+import Head from "next/head";
+import Script from "next/script";
 import Image from "next/image";
 import Item from "./item";
 
@@ -24,8 +25,11 @@ export default function Home() {
   });
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      {itemList}
-    </main>
+    <div className="bg-white">
+      <main className=" w-11/12 grid grid-cols-[1fr_2fr]">
+        <div></div>
+        <div className="grid grid-cols-2 gap-x-8 gap-y-16">{itemList}</div>
+      </main>
+    </div>
   );
 }
