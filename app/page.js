@@ -1,19 +1,17 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import Head from "next/head";
-import Script from "next/script";
-import Image from "next/image";
 import Filter from "./filter";
 import Item from "./item";
-import { Checkbox } from "@material-tailwind/react";
+import ButtonWithIcon from "./button";
+import Detail from "./detail";
 
 export default function Home() {
   const [items, setItems] = useState([]);
   const [itemList, setItemList] = useState([]);
 
   useEffect(() => {
-    fetch("https://mktideas.com/wp-json/jet-cct/shop_item")
+    fetch("https://mktagency.com/wp-json/jet-cct/shop_item")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -29,6 +27,8 @@ export default function Home() {
         console.log(err.message);
       });
   }, []);
+
+  function handleItemClick() {}
 
   function handleApplyFilterClick(types, materials) {
     setItemList(
@@ -47,24 +47,29 @@ export default function Home() {
           return filter;
         })
         .map((item) => {
-          return <Item key={item._ID} data={item}></Item>;
+          return (
+            <Item
+              key={item._ID}
+              data={item}
+              onItemClick={handleItemClick}
+            ></Item>
+          );
         })
     );
   }
 
-  /*
-  function handleMaterialCheckboxClick() {
-    console.log("Material");
-  }
-  */
-
   return (
-    <div className="bg-white">
-      <main className="w-11/12 grid grid-cols-[1fr_2fr] p-10">
+    <div className=" bg-white">
+      <main className="grid md:grid-cols-[1fr_2fr] md:p-10 p-6">
         <div>
           <Filter onApplyFilterClick={handleApplyFilterClick}></Filter>
         </div>
-        <div className="grid grid-cols-2 gap-x-8 gap-y-16">{itemList}</div>
+
+        <ButtonWithIcon></ButtonWithIcon>
+
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-7 md:gap-y-16">
+          {itemList}
+        </div>
       </main>
     </div>
   );

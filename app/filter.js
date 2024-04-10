@@ -65,7 +65,7 @@ export default function Filter({ onApplyFilterClick }) {
   }
 
   return (
-    <div>
+    <div className="md:block hidden">
       <p className="uppercase font-bold">Filtros y clasificación</p>
       <List>
         <p className="font-bold">Tipo de producto</p>

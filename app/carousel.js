@@ -6,7 +6,9 @@ import { Carousel } from "@material-tailwind/react";
 export default function CustomCarousel({ images }) {
   return (
     <Carousel
-      className="bg-[#F6F6F6] h-[30rem]"
+      className="bg-[#F6F6F6] md:h-[30rem] h-[20rem]"
+      prevArrow={0}
+      nextArrow={0}
       navigation={({ setActiveIndex, activeIndex, length }) => (
         <div className="absolute bottom-5 left-2/4 z-50 flex -translate-x-2/4 gap-2">
           {new Array(length).fill("").map((_, i) => (
@@ -26,7 +28,7 @@ export default function CustomCarousel({ images }) {
           key={index}
           src={image}
           alt="image 1"
-          className="object-contain h-[30rem] w-full"
+          className="object-contain md:h-[30rem] h-[20rem] w-full"
         />
       ))}
     </Carousel>
