@@ -11,7 +11,7 @@ export default function Home() {
   const [itemList, setItemList] = useState([]);
 
   useEffect(() => {
-    fetch("https://mktagency.com/wp-json/jet-cct/shop_item")
+    fetch("https://mktideas.agency/wp-json/jet-cct/shop_item")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
