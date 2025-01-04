@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import CustomCarousel from "./Carousel";
 import Detail from "./Detail";
 import Colors from "./Colors";
+import Image from "next/image";
 
 function Item({ data, active, onItemClick, itemKey, secondaryActive }) {
   const [activeColor, setCurrentColor] = useState(0);
@@ -62,7 +63,9 @@ function Item({ data, active, onItemClick, itemKey, secondaryActive }) {
             })}
           </div>
 
-          <button className="font-founders-grotesk font-bold border-[2px] border-black rounded-[25px] p-2 m-10 hover:bg-black hover:text-white">Solicitar Cotización</button>
+          <button className="font-founders-grotesk font-bold border-[2px] border-black rounded-[25px] p-2 m-10 hover:bg-black hover:text-white">
+            Solicitar Cotización
+          </button>
         </div>
       </div>
     );
@@ -77,9 +80,47 @@ function Item({ data, active, onItemClick, itemKey, secondaryActive }) {
           <div>
             <button
               onClick={() => onItemClick(itemKey)}
-              className="transition-all hover:tracking-wider font-founders-grotesk font-bold"
+              className="transition-all hover:tracking-wider font-founders-grotesk font-bold  flex items-center gap-3"
             >
               {data.name}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="65.757"
+                height="5.429"
+                viewBox="0 0 65.757 5.429"
+              >
+                <g
+                  id="Grupo_19"
+                  data-name="Grupo 19"
+                  transform="translate(-337.5 -1873.25)"
+                >
+                  <g
+                    id="Grupo_5"
+                    data-name="Grupo 5"
+                    transform="translate(-364 2812.75) rotate(-90)"
+                  >
+                    <line
+                      id="Línea_1"
+                      data-name="Línea 1"
+                      y2="65.5"
+                      transform="translate(939 701.5)"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="1"
+                    />
+                    <line
+                      id="Línea_2"
+                      data-name="Línea 2"
+                      x2="4.5"
+                      y2="7.5"
+                      transform="translate(934.5 759.5)"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="1"
+                    />
+                  </g>
+                </g>
+              </svg>
             </button>
           </div>
 
@@ -102,9 +143,47 @@ function Item({ data, active, onItemClick, itemKey, secondaryActive }) {
           <div>
             <button
               onClick={() => onItemClick(itemKey)}
-              className="transition-all hover:tracking-wider font-founders-grotesk font-bold"
+              className="transition-all hover:tracking-wider font-founders-grotesk font-bold flex items-center gap-3"
             >
               {data.name}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="65.757"
+                height="5.429"
+                viewBox="0 0 65.757 5.429"
+              >
+                <g
+                  id="Grupo_19"
+                  data-name="Grupo 19"
+                  transform="translate(-337.5 -1873.25)"
+                >
+                  <g
+                    id="Grupo_5"
+                    data-name="Grupo 5"
+                    transform="translate(-364 2812.75) rotate(-90)"
+                  >
+                    <line
+                      id="Línea_1"
+                      data-name="Línea 1"
+                      y2="65.5"
+                      transform="translate(939 701.5)"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="1"
+                    />
+                    <line
+                      id="Línea_2"
+                      data-name="Línea 2"
+                      x2="4.5"
+                      y2="7.5"
+                      transform="translate(934.5 759.5)"
+                      fill="none"
+                      stroke="#000"
+                      stroke-width="1"
+                    />
+                  </g>
+                </g>
+              </svg>
             </button>
           </div>
 
