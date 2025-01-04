@@ -60,7 +60,7 @@ export default function Home() {
   return (
     <div className="bg-white">
       <main className="grid md:grid-cols-[1fr_2fr] md:p-10 p-6">
-        <div>
+        <div className="sticky top-6 h-max">
           <Filter onApplyFilterClick={handleApplyFilterClick}></Filter>
         </div>
 

@@ -30,7 +30,8 @@ body {
 
 @font-face {
   font-family: "FoundersGrotesk";
-  src: url("/fonts/FoundersGrotesk-Regular.otf") format("truetype");
+  src: url("https://mktideas.agency/wp-content/uploads/2023/03/FoundersGrotesk-Regular-1.otf")
+    format("truetype");
   font-style: normal;
   font-weight: 400;
 }
