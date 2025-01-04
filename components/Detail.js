@@ -1,5 +1,5 @@
 "use client";
-import CustomCarousel from "./carousel";
+import CustomCarousel from "./Carousel";
 
 export default function Detail(props) {
   console.log(props);

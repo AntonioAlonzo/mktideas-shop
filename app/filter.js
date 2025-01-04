@@ -19,6 +19,8 @@ export default function Filter({ onApplyFilterClick }) {
     { label: "Velas", value: "vela" },
     { label: "Papelería", value: "papeleria" },
     { label: "Editorial", value: "editorial" },
+    { label: "Tecnología", value: "tecnologia" },
+    { label: "Wellness", value: "wellness" },
   ];
   const MATERIALS = [
     { label: "Fibras orgánicas", value: "fibra-organica" },
@@ -34,7 +36,16 @@ export default function Filter({ onApplyFilterClick }) {
   function handleTypeCheckbox(event, type) {
     if (event.target.checked) {
       if (type == "todo") {
-        setTypes(["todo", "envase", "bolsa", "vela", "papeleria", "editorial"]);
+        setTypes([
+          "todo",
+          "envase",
+          "bolsa",
+          "vela",
+          "papeleria",
+          "editorial",
+          "tecnologia",
+          "wellness",
+        ]);
       } else {
         setTypes([...types, type]);
       }
@@ -66,9 +77,9 @@ export default function Filter({ onApplyFilterClick }) {
 
   return (
     <div className="md:block hidden">
-      <p className="uppercase font-bold">Filtros y clasificación</p>
+      <p className="uppercase font-bold ">Filtros y clasificación</p>
       <List>
-        <p className="font-bold">Tipo de producto</p>
+        <p className="font-founders-grotesk font-bold">Tipo de producto</p>
         {TYPES.map((type, index) => (
           <ListItem className="p-0" key={index}>
             <label
@@ -98,7 +109,7 @@ export default function Filter({ onApplyFilterClick }) {
                   }}
                 />
               </ListItemPrefix>
-              <Typography color="blue-gray" className="font-medium">
+              <Typography color="blue-gray" className="font-medium font-founders-grotesk font-bold">
                 {type.label}
               </Typography>
             </label>
@@ -107,7 +118,7 @@ export default function Filter({ onApplyFilterClick }) {
       </List>
 
       <List>
-        <p className="font-bold">Material</p>
+        <p className=" font-founders-grotesk font-bold">Material</p>
         {MATERIALS.map((material, index) => (
           <ListItem className="p-0" key={index}>
             <label
@@ -136,7 +147,7 @@ export default function Filter({ onApplyFilterClick }) {
                   checked={materials.includes(material.value)}
                 />
               </ListItemPrefix>
-              <Typography color="blue-gray" className="font-medium">
+              <Typography color="blue-gray" className="font-medium  font-founders-grotesk font-bold">
                 {material.label}
               </Typography>
             </label>
@@ -146,14 +157,14 @@ export default function Filter({ onApplyFilterClick }) {
 
       <div className="flex flex-row gap-x-6 pt-6">
         <Button
-          className="normal-case"
+          className="normal-case font-founders-grotesk"
           variant="outlined"
           onClick={handleDeleteAllClick}
         >
           Borrar todo
         </Button>
         <Button
-          className="normal-case"
+          className="normal-case font-founders-grotesk"
           variant="outlined"
           onClick={() => {
             onApplyFilterClick(types, materials);
