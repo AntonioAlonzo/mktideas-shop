@@ -13,15 +13,22 @@ function Item({ data, active, onItemClick, itemKey, secondaryActive }) {
     data.colors["item-0"].photos.split(",")
   );
   const [currentCarousel, setCurrentCarousel] = useState(0); // Use useState for currentCarousel
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleDotClick = (index) => {
-    let photosArray = getPhotos(index);
-    setCurrentPhotos(photosArray);
-    if (photosArray.length < getPhotos(currentCarousel).length) {
-      setCurrentImage(0);
-    }
-    setCurrentCarousel(index); // Set carousel state
-    setCurrentColor(index);
+    setIsLoading(true); // Mostrar GIF de carga
+
+    setTimeout(() => {
+      const photosArray = getPhotos(index);
+      setCurrentPhotos(photosArray);
+      if (photosArray.length < getPhotos(currentCarousel).length) {
+        setCurrentImage(0);
+      }
+      setCurrentCarousel(index);
+      setCurrentColor(index);
+
+      setIsLoading(false); // Ocultar GIF de carga
+    }, 500); // Simular tiempo de carga
   };
 
   function getPhotos(index) {
@@ -136,7 +143,17 @@ function Item({ data, active, onItemClick, itemKey, secondaryActive }) {
     return (
       <div>
         <div>
-          <CustomCarousel images={photos}></CustomCarousel>
+          {isLoading ? (
+            <div className="flex justify-center items-center h-[30rem] bg-[#F6F6F6]">
+              <img
+                src="./loading.gif"
+                alt="Loading"
+                className="w-12 h-12 bg-[#F6F6F6]"
+              />
+            </div>
+          ) : (
+            <CustomCarousel images={photos}></CustomCarousel>
+          )}
         </div>
 
         <div className="flex justify-between pt-3 md:pt-6">
