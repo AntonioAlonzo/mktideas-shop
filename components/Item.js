@@ -148,11 +148,8 @@ function Item({ data, active, onItemClick, itemKey, secondaryActive }) {
     );
   } else {
     return (
-      <div
-        className="cursor-pointer transition-all duration-500 ease-in-out"
-        
-      >
-        <div onClick={() => onItemClick(itemKey)}>
+      <div className="cursor-pointer transition-all duration-500 ease-in-out">
+        <div>
           {isLoading ? (
             <div className="flex justify-center items-center h-[30rem] bg-[#F6F6F6] ">
               <img
