@@ -44,10 +44,16 @@ function Item({ data, active, onItemClick, itemKey, secondaryActive }) {
         </div>
 
         <div className="w-[25rem] bg-white flex flex-col justify-center p-8">
-          <div className="font-founders-grotesk font-bold text-[1.5rem]">
+          <div className="font-founders-grotesk font-bold text-[1.5rem] flex gap-5">
             {data.name}
+            <Colors
+              colors={data.colors}
+              onClickHandle={handleDotClick}
+              activeColor={activeColor}
+              small={true}
+            ></Colors>
           </div>
-          <div className="font-founders-grotesk">{data.description}</div>
+          <div className="font-founders-grotesk mt-4">{data.description}</div>
           <div className="font-founders-grotesk mt-6">
             <b>Dimensiones:</b> {data.dimensiones}
           </div>
@@ -135,16 +141,20 @@ function Item({ data, active, onItemClick, itemKey, secondaryActive }) {
             colors={data.colors}
             onClickHandle={handleDotClick}
             activeColor={activeColor}
+            small={false}
           ></Colors>
         </div>
       </div>
     );
   } else {
     return (
-      <div>
+      <div
+        className="cursor-pointer transition-all duration-500 ease-in-out"
+        onClick={() => onItemClick(itemKey)}
+      >
         <div>
           {isLoading ? (
-            <div className="flex justify-center items-center h-[30rem] bg-[#F6F6F6]">
+            <div className="flex justify-center items-center h-[30rem] bg-[#F6F6F6] ">
               <img
                 src="./loading.gif"
                 alt="Loading"
