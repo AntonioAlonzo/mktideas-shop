@@ -155,7 +155,13 @@ const FormsShop = ({ open, handleClose }) => {
             </form>
           </div>
 
-          <div className="w-[100rem] bg-form-background h-[90vh] bg-center bg-cover"></div>
+          <div
+            style={{
+              backgroundImage:
+                "url('https://mktideas.agency/wp-content/uploads/2025/01/formbg.jpg')",
+            }}
+            className="w-[100rem] bg-form-background h-[90vh] bg-center bg-cover"
+          ></div>
         </DialogBody>
       </Dialog>
     </React.Fragment>
