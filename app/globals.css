@@ -20,17 +20,14 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
 }
 
 @font-face {
   font-family: "FoundersGrotesk";
-  src: url("/fonts/FoundersGrotesk-Regular.otf") format("truetype");
+  src: url("https://mktideas.agency/wp-content/uploads/2023/03/FoundersGrotesk-Regular-1.otf") format("truetype");
   font-style: normal;
   font-weight: 400;
 }
@@ -43,25 +40,33 @@ body {
 }
 
 ::-webkit-scrollbar {
-  width: 8px; /* Thin scrollbar */
-  height: 8px; /* For horizontal scrollbar */
+  width: 8px;
+  /* Thin scrollbar */
+  height: 8px;
+  /* For horizontal scrollbar */
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark thumb */
-  border-radius: 10px; /* Rounded edges */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent dark thumb */
+  border-radius: 10px;
+  /* Rounded edges */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgba(0, 0, 0, 0.7); /* Darker on hover */
+  background-color: rgba(0, 0, 0, 0.7);
+  /* Darker on hover */
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent; /* Transparent track */
+  background: transparent;
+  /* Transparent track */
 }
 
 /* Firefox styles */
 html {
-  scrollbar-width: thin; /* Thin scrollbar */
-  scrollbar-color: rgba(0, 0, 0, 0.5) transparent; /* Thumb color and track color */
+  scrollbar-width: thin;
+  /* Thin scrollbar */
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  /* Thumb color and track color */
 }
