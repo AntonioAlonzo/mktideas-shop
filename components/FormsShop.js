@@ -155,7 +155,7 @@ const FormsShop = ({ open, handleClose }) => {
             </form>
           </div>
 
-          <div className="w-[100rem] bg-[url('/form-bg.jpg')] h-[90vh] bg-center bg-cover"></div>
+          <div className="w-[100rem] bg-[url('./form-bg.jpg')] h-[90vh] bg-center bg-cover"></div>
         </DialogBody>
       </Dialog>
     </React.Fragment>
