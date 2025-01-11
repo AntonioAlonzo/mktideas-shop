@@ -160,7 +160,7 @@ const FormsShop = ({ open, handleClose }) => {
               backgroundImage:
                 "url('https://mktideas.agency/wp-content/uploads/2025/01/formbg.jpg')",
             }}
-            className="w-[100rem] bg-form-background h-[50rem] bg-center bg-cover"
+            className="w-[100rem] bg-form-background h-[800px] bg-center bg-cover"
           ></div>
         </DialogBody>
       </Dialog>
