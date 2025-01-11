@@ -53,12 +53,12 @@ function Item({ data, active, onItemClick, itemKey, secondaryActive }) {
 	// Conditional rendering with proper return statements
 	if (active) {
 		return (
-			<div className="col-span-2 flex bg-[#F6F6F6] justify-center">
+			<div className="md:col-span-2 sm:col-span-1 flex md:flex-row flex-col bg-[#F6F6F6] justify-center">
 				<div className="">
 					<CustomCarousel images={photos}></CustomCarousel>
 				</div>
 
-				<div className="w-[25rem] bg-white flex flex-col justify-center p-8">
+				<div className="w-[25rem] md:bg-white bg-[#E5E5E5] flex flex-col justify-center p-8">
 					<div className="font-founders-grotesk font-bold text-[1.5rem] flex gap-5">
 						{data.name}
 						<Colors
@@ -107,7 +107,7 @@ function Item({ data, active, onItemClick, itemKey, secondaryActive }) {
 								className="bg-white p-8 rounded-lg relative z-20" // Aseguramos que el contenido esté sobre el fondo
 								onClick={(e) => e.stopPropagation()} // Previene el cierre al hacer clic en el contenido del modal
 							>
-								<Forms2 open={isOpenForms} handleClose={closeForms} />
+								<Forms2 itemName={data.name} open={isOpenForms} handleClose={closeForms} />
 							</div>
 						</div>
 					)}
@@ -116,7 +116,7 @@ function Item({ data, active, onItemClick, itemKey, secondaryActive }) {
 		);
 	} else if (secondaryActive) {
 		return (
-			<div className="col-span-2 flex  flex-col justify-center">
+			<div className="md:col-span-2 sm:col-span-1 flex  flex-col justify-center">
 				<div>
 					<CustomCarousel images={photos}></CustomCarousel>
 				</div>

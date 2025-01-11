@@ -3,14 +3,14 @@ import { useForm, ValidationError } from "@formspree/react";
 import Button from "@mui/material/Button";
 import { Dialog, DialogHeader, DialogBody } from "@material-tailwind/react";
 
-const FormsShop = ({ open, handleClose }) => {
+const FormsShop = ({ open, handleClose, itemName }) => {
   const [state, handleSubmit] = useForm("xyzzblrp");
 
   if (state.succeeded) {
     return (
       <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
         <div className="bg-white p-6 rounded-lg shadow-lg text-center">
-          <p className="text-xl font-semibold text-green-600">
+          <p className="text-xl font-semibold text-green-600 p-10">
             ¡Correo Enviado!
           </p>
         </div>
@@ -19,16 +19,16 @@ const FormsShop = ({ open, handleClose }) => {
   }
 
   return (
-    <React.Fragment className="w-[400rem]">
+    <React.Fragment className="md:w-[400rem] ">
       <Dialog
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
         size="xl"
-        className="p-0 rounded-none"
+        className="p-0 rounded-none "
       >
-        <DialogBody className="flex p-0  ">
-          <div className="w-[100rem] bg-[#838383] text-white p-8">
+        <DialogBody className="flex p-0 md:flex-row flex-col max-h-[90vh] overflow-y-auto">
+          <div className="md:w-[100rem] bg-[#838383] text-white p-8 md:order-0 order-1">
             <p className="font-founders-grotesk text-[2rem]">
               Tu proyecto. <br /> Tu voz
             </p>
@@ -41,6 +41,8 @@ const FormsShop = ({ open, handleClose }) => {
               onSubmit={handleSubmit}
               className="w-full max-w-4xl mx-auto bg-[#838383] text-white"
             >
+              <input type="hidden" name="product" value={itemName} />
+
               <div className="mb-4">
                 <label
                   htmlFor="empresa"
@@ -160,7 +162,7 @@ const FormsShop = ({ open, handleClose }) => {
               backgroundImage:
                 "url('https://mktideas.agency/wp-content/uploads/2025/01/formbg.jpg')",
             }}
-            className="w-[100rem] bg-form-background h-[800px] bg-center bg-cover"
+            className="md:w-[100rem] bg-form-background md:h-[800px] h-[0px] bg-center bg-cover md:order-1 order-0"
           ></div>
         </DialogBody>
       </Dialog>

@@ -66,7 +66,7 @@ export default function Home() {
 
         <ButtonWithIcon></ButtonWithIcon>
 
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-7 md:gap-y-16">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 sm:grid-cols-1 gap-x-8 gap-y-7 md:gap-y-16">
           {filteredItems.map((item, index) => {
             return (
               <Item
