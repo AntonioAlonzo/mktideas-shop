@@ -2,11 +2,12 @@
 
 import { Button } from "@material-tailwind/react";
 
-export default function ButtonWithIcon() {
+export default function ButtonWithIcon({ onOpenFilterClick }) {
   return (
     <Button
       variant="outlined"
       className="flex items-center gap-3 md:hidden normal-case justify-center w-60 m-auto my-6"
+      onClick={onOpenFilterClick}
     >
       Filtros y clasificación
       <svg

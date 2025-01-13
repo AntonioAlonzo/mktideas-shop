@@ -11,7 +11,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 
-export default function Filter({ onApplyFilterClick }) {
+export default function Filter({ onApplyFilterClick, onCloseFilterClick }) {
   const TYPES = [
     { label: "Todo", value: "todo" },
     { label: "Envases", value: "envase" },
@@ -76,8 +76,36 @@ export default function Filter({ onApplyFilterClick }) {
   }
 
   return (
-    <div className="md:block hidden">
-      <p className="uppercase font-bold ">Filtros y clasificación</p>
+    <div>
+      <div className="flex items-center">
+        <p className="uppercase font-bold">Filtros y clasificación</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={2}
+          stroke="currentColor"
+          className="h-5 w-5 md:hidden ml-3 cursor-pointer"
+          onClick={() => onCloseFilterClick(false)}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            data-slot="icon"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75"
+            />
+          </svg>
+        </svg>
+      </div>
+
       <List>
         <p className="font-founders-grotesk font-bold">Tipo de producto</p>
         {TYPES.map((type, index) => (
@@ -109,7 +137,10 @@ export default function Filter({ onApplyFilterClick }) {
                   }}
                 />
               </ListItemPrefix>
-              <Typography color="blue-gray" className="font-medium font-founders-grotesk font-bold">
+              <Typography
+                color="blue-gray"
+                className="font-medium font-founders-grotesk font-bold"
+              >
                 {type.label}
               </Typography>
             </label>
@@ -147,7 +178,10 @@ export default function Filter({ onApplyFilterClick }) {
                   checked={materials.includes(material.value)}
                 />
               </ListItemPrefix>
-              <Typography color="blue-gray" className="font-medium  font-founders-grotesk font-bold">
+              <Typography
+                color="blue-gray"
+                className="font-medium  font-founders-grotesk font-bold"
+              >
                 {material.label}
               </Typography>
             </label>

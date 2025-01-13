@@ -9,9 +9,9 @@ import Detail from "../components/Detail";
 export default function Home() {
   const [items, setItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
-  const [itemList, setItemList] = useState([]);
   const [activeItem, setActiveItem] = useState();
   const [secondaryActiveItem, setSecondaryActiveItem] = useState();
+  const [isFilterOpened, setIsFilterOpen] = useState(false);
 
   useEffect(() => {
     fetch("https://mktideas.agency/wp-json/jet-cct/shop_item")
@@ -20,7 +20,6 @@ export default function Home() {
         console.log(data);
         setItems(data);
         setFilteredItems(data);
-        console.log(itemList);
       })
       .catch((err) => {
         console.log(err.message);
@@ -55,16 +54,34 @@ export default function Home() {
         return filter;
       })
     );
+    setIsFilterOpen(false);
+  }
+
+  function handleOpenFilter(open) {
+    setIsFilterOpen(open);
   }
 
   return (
     <div className="bg-white">
       <main className="grid md:grid-cols-[1fr_2fr] md:p-10 p-6">
-        <div className="sticky top-6 h-max">
+        <div className="sticky top-6 h-max hidden md:block">
           <Filter onApplyFilterClick={handleApplyFilterClick}></Filter>
         </div>
 
-        <ButtonWithIcon></ButtonWithIcon>
+        <ButtonWithIcon
+          onOpenFilterClick={() => handleOpenFilter(true)}
+        ></ButtonWithIcon>
+
+        <div
+          className={`fixed inset-0 bg-white p-6 z-50 overflow-y-auto transition-transform transform ${
+            isFilterOpened ? "translate-x-0" : "translate-x-full"
+          } md:hidden`}
+        >
+          <Filter
+            onCloseFilterClick={handleOpenFilter}
+            onApplyFilterClick={handleApplyFilterClick}
+          ></Filter>
+        </div>
 
         <div className="grid sm:grid-cols-1 md:grid-cols-2 sm:grid-cols-1 gap-x-8 gap-y-7 md:gap-y-16">
           {filteredItems.map((item, index) => {
