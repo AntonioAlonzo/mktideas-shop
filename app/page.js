@@ -26,6 +26,18 @@ export default function Home() {
       });
   }, []);
 
+  useEffect(() => {
+    // Add or remove the 'no-scroll' class based on the filter popup state
+    if (isFilterOpened) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+    
+    // Cleanup function to remove the class when component unmounts or updates
+    return () => document.body.classList.remove("no-scroll");
+  }, [isFilterOpened]);
+
   function handleItemClick(itemID) {
     setActiveItem(itemID);
 
@@ -60,6 +72,8 @@ export default function Home() {
   function handleOpenFilter(open) {
     setIsFilterOpen(open);
   }
+
+  
 
   return (
     <div className="bg-white">
